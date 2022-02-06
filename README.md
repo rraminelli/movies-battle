@@ -26,12 +26,11 @@ Os dados foram recuperados da API http://www.omdbapi.com e armazenados no banco 
 - Game: controla a execução do jogo. Cria, valida, finaliza e fornece relatório final e ranking geral do game.
 
 ## Players iniciais
-Na inicialização são criados dois usuários jogadores
+Na inicialização são criados dois usuários jogadores. Mas também é possível registrar outros.
  
-Username: player1
-Password: 1234
+- Username: player1
+- Password: 1234
  
-Username: player2
-Password: 1234
+- Username: player2
+- Password: 1234
  
-Mas também é possível registrar outros.
