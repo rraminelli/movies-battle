@@ -1,0 +1,36 @@
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: userauth
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:h2:file:~/data/mb/mb-user
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      properties:
+        hibernate.dialect: org.hibernate.dialect.H2Dialect
+
+eureka:
+  instance:
+    hostname: localhost
+    instance-id: ${eureka.instance.hostname}:${spring.application.name}:${server.port}
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+app:
+  auth:
+    tokenSecret: fc949cf82497c4c30bb0c7948c678c284ccefc2cf22059b4007e5591929d1a61
+    tokenExpiration: 604800

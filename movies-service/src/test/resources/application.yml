@@ -1,0 +1,24 @@
+
+server:
+  port: 9090
+
+spring:
+  application:
+    name: movies
+  profiles:
+    active: TEST_MOCK
+  datasource:
+    url: jdbc:h2:mem:mb-movies-test
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate.dialect: org.hibernate.dialect.H2Dialect
+
+app:
+  urlOmdbapi: http://www.omdbapi.com?apikey=ef08615e

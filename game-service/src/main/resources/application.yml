@@ -1,0 +1,41 @@
+
+server:
+  port: 9080
+
+spring:
+  application:
+    name: game
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:h2:file:~/data/mb/mb-game
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate.dialect: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:8060/userauth/auth-server
+
+eureka:
+  instance:
+    hostname: localhost
+    instance-id: ${eureka.instance.hostname}:${spring.application.name}:${server.port}
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
