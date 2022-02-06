@@ -1,0 +1,439 @@
+{
+	"info": {
+		"_postman_id": "df155a55-4ac9-41a3-ae92-2c0949c70eda",
+		"name": "Movies Battle API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "UserAuth",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"test\",\r\n    \"name\": \"test rodrigo\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8060/userauth/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8060",
+							"path": [
+								"userauth",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"player1\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8060/userauth/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8060",
+							"path": [
+								"userauth",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"test\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8060/userauth/auth/refresh-token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8060",
+							"path": [
+								"userauth",
+								"auth",
+								"refresh-token"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwbGF5ZXIxIiwiaWF0IjoxNjQ0MTU2NTA5LCJleHAiOjE2NDQ3NjEzMDl9.CCAfzfopVfq_nH2_r6i5y8tfV8nY_aOy96faLNvBdFqOqR6aX4tqdJs5wobzWtoAwVkoBILwjK3l-OiRnU-7IA",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Movies",
+			"item": [
+				{
+					"name": "get list all movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8060/movies/movie",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8060",
+							"path": [
+								"movies",
+								"movie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get pair random",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"excludeIdMoviesPair\":[\"\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8060/movies/movie/pair-random",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8060",
+							"path": [
+								"movies",
+								"movie",
+								"pair-random"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check vote rating",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"movie1Id\": \"tt4275958\",\r\n    \"movie2Id\": \"tt14122734\",\r\n    \"movieCheckId\": \"tt14122734\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8060/movies/movie/check-rating",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8060",
+							"path": [
+								"movies",
+								"movie",
+								"check-rating"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwbGF5ZXIxIiwiaWF0IjoxNjQ0MTU2NTI2LCJleHAiOjE2NDQ3NjEzMjZ9.kG3-uPNzKR4pXJAGNrTyJ934_3giv7qBxcSfulkMk5yCbXePDshugg8eGPrzyq0zg5omS86LxjcroGtsxI61gg",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Game",
+			"item": [
+				{
+					"name": "start game",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8060/game/quiz/start",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8060",
+							"path": [
+								"game",
+								"quiz",
+								"start"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check quiz rating",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"movie1Id\": \"tt1552063\",\r\n    \"movie2Id\": \"tt0215256\",\r\n    \"movieCheckId\": \"tt1552063\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8060/game/quiz/check",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8060",
+							"path": [
+								"game",
+								"quiz",
+								"check"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "next quiz",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8060/game/quiz/next",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8060",
+							"path": [
+								"game",
+								"quiz",
+								"next"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "finish game",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8060/game/quiz/finish",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8060",
+							"path": [
+								"game",
+								"quiz",
+								"finish"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "resume - ranking",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8060/game/ranking",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8060",
+							"path": [
+								"game",
+								"ranking"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwbGF5ZXIxIiwiaWF0IjoxNjQ0MTU2NTI2LCJleHAiOjE2NDQ3NjEzMjZ9.kG3-uPNzKR4pXJAGNrTyJ934_3giv7qBxcSfulkMk5yCbXePDshugg8eGPrzyq0zg5omS86LxjcroGtsxI61gg",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
