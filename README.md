@@ -34,3 +34,6 @@ Na inicialização são criados dois usuários jogadores. Mas também é possív
 - Username: player2
 - Password: 1234
  
+ ## Documentação
+ Swagger disponível em cada micro serviço: http://localhost:<porta>//swagger-ui/index.html.
+ Tambem é disponível o arquivo .json para testes via postman. ("Movies Battle API.postman_collection.json") 
